@@ -591,7 +591,7 @@ class SyncApp:
             if session is None:
                 raise HTTPForbidden()
 
-            url = req.path[len(self.base_media_url):]
+            url = req.path[len(self.base_media_url):].replace('/','')
 
             if url not in self.valid_urls:
                 raise HTTPNotFound()
