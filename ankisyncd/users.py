@@ -4,6 +4,7 @@ import hashlib
 import logging
 import os
 import sqlite3 as sqlite
+from migrate_user_tables import migrate
 
 logger = logging.getLogger("ankisyncd.users")
 
@@ -60,7 +61,8 @@ class SqliteUserManager(SimpleUserManager):
         res = cursor.fetchone()
         conn.close()
         if res is not None:
-            raise Exception("Outdated database schema, run utils/migrate_user_tables.py")
+            # raise Exception("Outdated database schema, run utils/migrate_user_tables.py")
+            migrate()
 
     # Default to using sqlite3 but overridable for sub-classes using other
     # DB API 2 driver variants

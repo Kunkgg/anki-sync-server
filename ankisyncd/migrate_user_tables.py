@@ -11,11 +11,11 @@ path = os.path.realpath(os.path.abspath(os.path.join(__file__, '../')))
 sys.path.insert(0, os.path.dirname(path))
 
 import sqlite3
-import ankisyncd.config
-conf = ankisyncd.config.load()
+import config
+conf = config.load()
 
 
-def main():
+def migrate():
 
     if os.path.isfile(conf["auth_db_path"]):
         conn = sqlite3.connect(conf["auth_db_path"])
@@ -67,4 +67,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    migrate()
