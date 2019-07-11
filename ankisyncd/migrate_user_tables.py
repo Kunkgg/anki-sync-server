@@ -11,8 +11,8 @@ path = os.path.realpath(os.path.abspath(os.path.join(__file__, '../')))
 sys.path.insert(0, os.path.dirname(path))
 
 import sqlite3
-import config
-conf = config.load()
+import ankisyncd.config
+conf = ankisyncd.config.load()
 
 
 def migrate():
