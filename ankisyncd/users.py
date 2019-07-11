@@ -4,7 +4,7 @@ import hashlib
 import logging
 import os
 import sqlite3 as sqlite
-from migrate_user_tables import migrate
+from ankisyncd.migrate_user_tables import migrate
 
 logger = logging.getLogger("ankisyncd.users")
 
